@@ -13,6 +13,8 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Multiple Monitors
+local xrandr = require("xrandr")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -319,6 +321,8 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+    -- Multiple Monitors
+    awful.key({ modkey }, "p", function() xrandr.xrandr() end),
 )
 
 clientkeys = gears.table.join(

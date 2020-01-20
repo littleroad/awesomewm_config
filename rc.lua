@@ -299,6 +299,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() xrandr.xrandr() end),
     -- Screensaver
     awful.key({ modkey }, "l", function() awful.spawn("light-locker-command -l") end),
+    -- Screenshot
+    awful.key({ modkey }, "a", function() awful.spawn("flameshot gui") end),
+    -- Chromium
+    awful.key({ modkey }, "w", function() awful.spawn("chromium") end),
+    -- Virtual Machine
+    awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\" --show-domain-console win10") end)
 )
 
 clientkeys = gears.table.join(

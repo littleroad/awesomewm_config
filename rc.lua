@@ -308,7 +308,12 @@ globalkeys = gears.table.join(
     -- Chromium
     awful.key({ modkey }, "w", function() awful.spawn("chromium") end),
     -- Virtual Machine
-    awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\" --show-domain-console win10") end)
+    awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\" --show-domain-console win10") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("sudo light -U 5") end),
+    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("sudo light -A 5") end),
+    awful.key({}, "XF86AudioMute ", function() awful.spawn("amixer -D pulse sset Master toggle") end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.spawn("amixer -D pulse sset Master 5%-") end),
+    awful.key({}, "XF86AudioRaiseVolume ", function() awful.spawn("amixer -D pulse sset Master 5%+") end)
 )
 
 clientkeys = gears.table.join(

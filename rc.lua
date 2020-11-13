@@ -49,7 +49,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_dir("config") .. "theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "arc-dark/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "sakura"
@@ -299,6 +299,8 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
+    -- Nemo
+    awful.key({ modkey }, "e", function() awful.spawn("nemo") end),
     -- Multiple Monitors
     awful.key({ modkey }, "p", function() xrandr.xrandr() end),
     -- Screensaver
@@ -308,7 +310,8 @@ globalkeys = gears.table.join(
     -- Chromium
     awful.key({ modkey }, "w", function() awful.spawn("chromium") end),
     -- Virtual Machine
-    awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\" --show-domain-console win10") end),
+    -- awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\" --show-domain-console win10_domain") end),
+    awful.key({ modkey }, "v", function() awful.spawn("virt-manager -c \"qemu:///system\"") end),
     awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("sudo light -U 5") end),
     awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("sudo light -A 5") end),
     awful.key({}, "XF86AudioMute ", function() awful.spawn("amixer -D pulse sset Master toggle") end),
